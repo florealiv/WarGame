@@ -2,11 +2,14 @@
 
 Cards::Cards()
 {
+	suit = spade;
+	rank = 1;
 }
 
-Cards::Cards(suits suit, int rank)
+Cards::Cards(suits suits, int ranks)
 {
-
+	suit = suits;
+	rank = ranks;
 }
 
 
