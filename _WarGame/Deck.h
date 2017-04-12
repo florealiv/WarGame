@@ -1,6 +1,7 @@
 #pragma once
 #include "Cards.h"
 #include <algorithm>
+#include <vector>
 
 class Deck
 {
@@ -8,13 +9,13 @@ public:
 	Deck();
 	~Deck();
 	void shuffle() {
-		std::random_shuffle(cards, cards + 52);
+		std::random_shuffle(cards.begin(), cards.end());
 	};
 	bool isEmpty() {
 		return topCard <= 0;
 	};
 	Cards draw();
-	Cards cards[52];
+	std::vector<Cards> cards;
 	int topCard;
 };
 
