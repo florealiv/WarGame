@@ -1,6 +1,6 @@
 #pragma once
 #include "Cards.h"
-#include <vector>
+#include <queue>
 
 class Player
 {
@@ -8,5 +8,5 @@ public:
 	Player();
 	~Player();
 	Cards draw();
-	std::vector<Cards> myCards;
+	std::queue<Cards> myCards;
 };
