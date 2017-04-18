@@ -34,7 +34,9 @@ int main()
 		}
 		else if (table[0].rank == table[1].rank) {
 			War(table, &player1, &player2);
+			if (player1.myCards.size() + player2.myCards.size() == 52) {
 			table.erase(table.begin(), table.end());
+			}
 		}
 		else {
 			for each (Cards card in table)
@@ -46,16 +48,18 @@ int main()
 
 	}
 	if(player1.myCards.empty()){
-		std::cout << "Player 1 wins!" << std::endl;
+		std::cout << "Player 2 wins!" << std::endl;
 	}
 	else {
-		std::cout << "Player 2 wins!" << std::endl;
+		std::cout << "Player 1 wins!" << std::endl;
 	}
 	return 0;
 }
 
 void War(std::vector<Cards> table, Player* player1, Player* player2) {
 	std::cout << "War started!"<<std::endl;
+	if(std::min((int)player1->myCards.size(), (int)player2->myCards.size()) != 0){
+
 	for (int i = 0; i < std::min(table[table.size() - 1].rank, std::min((int)player1->myCards.size(), (int)player2->myCards.size())); i++) {
 		table.push_back(player1->draw());
 		table.push_back(player2->draw());
@@ -76,6 +80,7 @@ void War(std::vector<Cards> table, Player* player1, Player* player2) {
 	}
 	else {
 		War(table, player1, player2);
+	}
 	}
 
 
