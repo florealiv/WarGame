@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\WarGame\WarGame\stdafx.h" />
+    <ClInclude Include="WarGame\WarGame\stdafx.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\WarGame\WarGame\stdafx.cpp" />
-    <ClCompile Include="..\..\WarGame\WarGame\WarGame.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="WarGame.cpp" />
     <ClCompile Include="Cards.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Player.cpp" />
