@@ -24,6 +24,7 @@
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="WarGameCardComparer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\WarGame\WarGame\stdafx.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="WarGameCardComparer.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{695A3F7E-3877-4D25-AD2C-835E0D8C0A39}</ProjectGuid>
