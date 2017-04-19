@@ -8,6 +8,7 @@ class Deck
 {
 public:
 	Deck();
+	Deck(int minCard, int maxCard);
 	void shuffle() {
 		std::srand(unsigned(std::time(0)));
 		std::random_shuffle(cards.begin(), cards.end());
