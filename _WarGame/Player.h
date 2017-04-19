@@ -1,5 +1,5 @@
 #pragma once
-#include "Cards.h"
+#include "Card.h"
 #include <queue>
 #include <iostream>
 #include <string>
@@ -7,10 +7,12 @@
 class Player
 {
 public:
-	Player();
 	Player(std::string name);
-	~Player();
-	Cards draw();
-	std::queue<Cards> myCards;
+	Card draw();
+	std::string getName() { return _name; };
+	void pushCard(Card card);
+	int numberOfCards() { return (int)myCards.size(); };
+private:
+	std::queue<Card> myCards;
 	std::string _name;
 };
