@@ -6,10 +6,14 @@
 #include "Player.h"
 #include <algorithm>
 
+
+void War(std::vector<Cards> table, Player* player1, Player* player2);
+
 int main()
 {
 	Deck deck;
-	Player player1, player2;
+	Player player1 = Player("Player 1");
+	Player player2 = Player("Player 2");
 	deck.shuffle();
 	std::vector<Cards> table;
 	for (int i = 0; i < 26; i++) {
@@ -22,40 +26,63 @@ int main()
 		table.push_back(player2.draw());
 		if (table[0].rank > table[1].rank)
 		{
-			player1.myCards.push(table[0]);
-			player1.myCards.push(table[1]);
+			for each (Cards card in table)
+			{
+				player1.myCards.push(card);
+			}
 			table.erase(table.begin(), table.end());
 		}
-		else if (table[0].rank = table[1].rank) {
-			for (int i = 0; i < std::min(table[0].rank, std::min((int)player1.myCards.size(), (int)player2.myCards.size())); i++) {
-				table.push_back(player1.draw());
-				table.push_back(player2.draw());
-			}
-			if (table[table.size() - 1].rank > table[table.size() - 2].rank) {
-				for each (Cards card in table)
-				{
-					player1.myCards.push(card);
-				}
-				table.erase(table.begin(), table.end());
-			}
-			else if (table[table.size() - 1].rank < table[table.size() - 2].rank) {
-				for each (Cards card in table)
-				{
-					player2.myCards.push(card);
-				}
-				table.erase(table.begin(), table.end());
-			}
-			else {
-
+		else if (table[0].rank == table[1].rank) {
+			War(table, &player1, &player2);
+			if (player1.myCards.size() + player2.myCards.size() == 52) {
+			table.erase(table.begin(), table.end());
 			}
 		}
 		else {
-			player2.myCards.push(table[0]);
-			player2.myCards.push(table[1]);
+			for each (Cards card in table)
+			{
+				player2.myCards.push(card);
+			}
 			table.erase(table.begin(), table.end());
 		}
 
 	}
+	if(player1.myCards.empty()){
+		std::cout << "Player 2 wins!" << std::endl;
+	}
+	else {
+		std::cout << "Player 1 wins!" << std::endl;
+	}
 	return 0;
+}
+
+void War(std::vector<Cards> table, Player* player1, Player* player2) {
+	std::cout << "War started!"<<std::endl;
+	if(std::min((int)player1->myCards.size(), (int)player2->myCards.size()) != 0){
+
+	for (int i = 0; i < std::min(table[table.size() - 1].rank, std::min((int)player1->myCards.size(), (int)player2->myCards.size())); i++) {
+		table.push_back(player1->draw());
+		table.push_back(player2->draw());
+	}
+	if (table[table.size() - 1].rank > table[table.size() - 2].rank) {
+		for each (Cards card in table)
+		{
+			player2->myCards.push(card);
+		}
+		//table.erase(table.begin(), table.end());
+	}
+	else if (table[table.size() - 1].rank < table[table.size() - 2].rank) {
+		for each (Cards card in table)
+		{
+			player1->myCards.push(card);
+		}
+		//table.erase(table.begin(), table.end());
+	}
+	else {
+		War(table, player1, player2);
+	}
+	}
+
+
 }
 
