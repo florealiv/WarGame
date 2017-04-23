@@ -14,7 +14,7 @@ public:
 		std::random_shuffle(cards.begin(), cards.end());
 	};
 	Card draw();
-	bool isEmpty() { return cards.size() == 0; };
+	bool isEmpty() const { return cards.size() == 0; };
 private:
 	std::vector<Card> cards;
 };

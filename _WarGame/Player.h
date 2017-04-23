@@ -9,9 +9,9 @@ class Player
 public:
 	Player(std::string name);
 	Card draw();
-	std::string getName() { return _name; };
+	std::string getName() const { return _name; };
 	void pushCard(Card card);
-	int numberOfCards() { return (int)myCards.size(); };
+	int numberOfCards() const { return (int)myCards.size(); };
 private:
 	std::queue<Card> myCards;
 	std::string _name;

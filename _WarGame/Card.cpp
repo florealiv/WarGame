@@ -13,12 +13,12 @@ Card::Card(suits suits, int ranks)
 }
 
 
-std::ostream & operator << (std::ostream & out, Card & aCard) {
+std::ostream& operator << (std::ostream & out, Card & aCard) {
 	switch (aCard.rank) {
-	case 11: out << "Jack";  break;
-	case 12: out << "Queen"; break;
-	case 13: out << "King";  break;
-	case 14:  out << "Ace";   break;
+	case 12: out << "Jack";  break;
+	case 13: out << "Queen"; break;
+	case 14: out << "King";  break;
+	case 11:  out << "Ace";   break;
 	default:
 		out << aCard.rank; break;
 	}
