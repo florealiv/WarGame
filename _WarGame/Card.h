@@ -9,7 +9,6 @@ class Card
 public:
 	Card();
 	Card(suits suit,int rank);
-	friend std::ostream& operator << (std::ostream& out, Card& aCard);
 	int getRank() const { return rank; };
 	int getSuit() const { return suit; };
 private:
@@ -17,3 +16,4 @@ private:
 	suits suit;
 };
 
+	std::ostream& operator << (std::ostream& out, Card& aCard);
