@@ -17,18 +17,32 @@ int WarGameCardComparer::compare(const Card& card1, const Card& card2)
 	return 0;
 }
 
-std::vector<int> WarGameCardComparer::compare(std::vector<Card> cardsOnTable) {
+std::vector<int> WarGameCardComparer::compare(std::vector<Card> cardsOnTable,int numberOfPlayers) {
 	std::vector<int> cardRanks;
 	std::vector<int> winningCards;
-	for each (Card card in cardsOnTable)
-	{
-		cardRanks.push_back(card.getRank());
-	}
-	int maxValue = *std::max_element(cardRanks.begin(), cardRanks.end());
+	std::vector<Card> cardsToCompare;
+	Card maxCard;
 	
-	for (int i = 0; i < cardsOnTable.size(); i++)
+	for (int i = numberOfPlayers ; i >0; i--) {
+		cardRanks.push_back(cardsOnTable[cardsOnTable.size()-i].getRank());
+		cardsToCompare.push_back(cardsOnTable[cardsOnTable.size() - i]);
+	}
+
+	maxCard = cardsToCompare[0];
+	for (int i = 1; i < cardsToCompare.size(); i++) {
+		if (compare(maxCard, cardsToCompare[i ]) == 2) {
+			maxCard = cardsToCompare[i];
+		}
+	}
+	//for each (Card card in cardsOnTable)
+	//{
+	//	cardRanks.push_back(card.getRank());
+	//}
+	int maxValue = maxCard.getRank();
+	
+	for (int i = 0; i <(int)cardsToCompare.size(); i++)
 	{
-		if (cardsOnTable[i].getRank() == maxValue) {
+		if (cardsToCompare[i].getRank() == maxValue) {
 			winningCards.push_back(i);
 		}
 	}

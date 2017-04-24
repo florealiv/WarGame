@@ -27,6 +27,7 @@ Deck::Deck(int minCard, int maxCard)
 
 Card Deck::draw()
 {
+
 	Card card = cards.front();
 	cards.erase(cards.begin());
 	return card;

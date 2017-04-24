@@ -1,18 +1,18 @@
 #include "Player.h"
 
-Player::Player(std::string name)
+Player::Player( std::string name)
+	 :_name(name)
 {
-	_name = name;
-	myCards = {};
 }
+
 
 Card Player::draw()
 {
 	Card card = myCards.front();
-	myCards.pop();
+	popCard();
 	return card;
 }
 
-void Player::pushCard(Card card ) {
+void Player::pushCard(Card card) {
 	myCards.push(card);
 }

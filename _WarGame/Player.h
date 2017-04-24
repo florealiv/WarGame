@@ -12,6 +12,7 @@ public:
 	std::string getName() const { return _name; };
 	void pushCard(Card card);
 	int numberOfCards() const { return (int)myCards.size(); };
+	void popCard() { this->myCards.pop(); };
 private:
 	std::queue<Card> myCards;
 	std::string _name;
